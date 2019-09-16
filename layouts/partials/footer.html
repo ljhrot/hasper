@@ -1,0 +1,15 @@
+
+
+<!-- highlight.js -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<!-- Add Google Analytics  -->
+{{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
+  {{ template "_internal/google_analytics_async.html" . }}
+{{- end -}}
+<!-- Fitvids makes video embeds responsive and awesome -->
+<script type="text/javascript" src="{{ "/assets/js/jquery.fitvids.js" | relURL }}"></script>
+<script type="text/javascript" src="{{ "/assets/js/index.js" | relURL }}"></script>

@@ -1,0 +1,21 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Hasper"
+license = "MIT"
+licenselink = "https://github.com/ljhrot/hasper/blob/master/LICENSE"
+description = ""
+homepage = "http://ljhrot.github.com/hasper/"
+tags = ["blog", "simple"]
+features = ["blog", "simple"]
+min_version = "0.41"
+
+[author]
+  name = "ljhrot"
+  homepage = "https://github.com/ljhrot"
+
+# If porting an existing theme
+[original]
+  name = "jasper"
+  homepage = "https://jekyller.github.io/jasper/"
+  repo = "https://github.com/jekyller/jasper"

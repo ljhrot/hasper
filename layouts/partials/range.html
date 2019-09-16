@@ -1,0 +1,37 @@
+{{ range .Paginator.Pages }}
+{{ $author := ""}}
+{{ if .Params.Author }}
+{{ $author = index .Site.Data.authors .Params.Author }}
+{{ end }}
+{{ if and $author (eq .Params.Layout "post" ) }}
+<article class="post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    </header>
+
+    <section class="post-excerpt">
+        <p>{{ truncate 150 ( .Summary ) }}<a class="read-more" href="{{ .RelPermalink }}">&raquo;</a></p>
+    </section>
+
+    <footer class="post-meta">
+        <img class="author-thumb" src="{{ $author.assets | relURL }}" alt="Author image" nopin="nopin" />
+        <a href="{{ printf "author/%s" $author.username | relLangURL  }}">{{- $author.name -}}</a>
+
+        {{/*  tags  */}}
+        {{ with .Params.Tags }}
+        {{ $len := (len .) }}
+        {{ range $index, $tag := . }}
+        {{ if eq $index 0 }}on{{ end }}
+        <a href="{{ "tags" | relLangURL }}/{{ . | urlize }}/">{{ . | humanize }}</a>
+        {{- if ne (add $index 1) $len -}},{{- end -}}
+        {{ end }}
+        {{ end }}
+
+        {{/*  post date  */}}
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+            {{ .Date.Format "2 Jan 2006" }}
+        </time>
+    </footer>
+</article>
+{{ end }}
+{{ end }}

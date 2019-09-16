@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+{{- block "main" . }}{{- end }}
+
+<!-- The tiny footer at the very bottom -->
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a> &copy; {{ now.Format "2006" }}</section>
+    <section class="poweredby">Proudly published with <a href="https://gohugo.com/">Hugo</a> using <a href="https://github.com/jekyller/jasper">Hasper</a></section>
+</footer>
+</div>
+
+{{- partial "footer.html" . -}}
+
+</body>
+
+</html>

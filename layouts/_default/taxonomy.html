@@ -1,0 +1,39 @@
+{{ define "main" }}
+
+{{ .Scratch.Set "title" .Site.Title }}
+{{ .Scratch.Set "desc" .Site.Params.Description }}
+{{- partial "head.html" . -}}
+
+<body class="tag-template nav-closed">
+    
+{{ .Scratch.Set "navCurrent" .Title }}
+{{- partial "navigation.html" . -}}
+
+<div class="site-wrapper">
+
+{{ .Scratch.Set "page-description" (printf "A %d-post collection" (len .Data.Pages)) }}
+{{ .Scratch.Set "head" "tag-head" }}
+{{ .Scratch.Set "navigation" true }}
+
+
+{{ with index .Site.Data.tags .Data.Term }}
+{{ if .description }}
+{{ $.Scratch.Set "page-description" .description }}
+{{ end }}
+
+{{ if .cover }}
+{{ $.Scratch.Set "cover" .cover }}
+{{ end }}
+{{ end }}
+
+{{- partial "header.html" . -}}
+
+<main id="content" class="content" role="main">
+    <div class="extra-pagination inner">
+        {{ partial "pagination.html" . }}
+    </div>
+    {{ partial "range.html" . }}
+</main>
+
+{{ partial "pagination.html" . }}
+{{ end }}

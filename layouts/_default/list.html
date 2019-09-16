@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+{{ .Scratch.Set "title" .Site.Title }}
+{{ .Scratch.Set "desc" .Site.Params.Description }}
+{{- partial "head.html" . -}}
+
+<!-- this is a bug -->
+<!-- see https://discourse.gohugo.io/t/solved-error-calling-index-value-is-nil-should-be-of-type-string/10453/13 -->
+<!-- hugo version 0.54.0  -->
+{{ $paginator := .Paginate .Site.RegularPages }}
+
+<body class="{{ if (gt .Paginator.PageNumber 1) }}paged archive-template{{ else }}home-template{{ end }} nav-closed">
+    
+{{ .Scratch.Set "navCurrent" "Home" }}
+{{- partial "navigation.html" . -}}
+
+<div class="site-wrapper">
+
+{{ .Scratch.Set "head" "" }}
+{{ .Scratch.Set "navigation" true }}
+{{- partial "header.html" . -}}
+
+<main id="content" class="content" role="main">
+    <div class="extra-pagination inner">
+        {{ partial "pagination.html" . }}
+    </div>
+    {{ partial "range.html" . }}
+</main>
+
+{{ partial "pagination.html" . }}
+{{ end }}

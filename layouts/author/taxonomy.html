@@ -1,0 +1,61 @@
+{{ define "main" }}
+
+{{ .Scratch.Set "title" "Author" }}
+{{ .Scratch.Set "desc" .Site.Params.Description }}
+{{- partial "head.html" . -}}
+
+{{ $author := index .Site.Data.authors .Data.Term }}
+<body class="author-template nav-closed">
+
+{{ .Scratch.Set "navCurrent" .Title }}
+{{- partial "navigation.html" . -}}
+
+<div class="site-wrapper">
+
+{{/*  author  */}}
+{{ .Scratch.Set "head" "author-head" }}
+
+<header class="main-header author-head {{ if not .Site.Params.Author.Cover }}no-cover{{ end }}" {{ if .Site.Params.Author.Cover }} style="background-image: url({{ .Site.Params.Author.Cover | relLangURL }})" {{ end }}>
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="{{ .Site.BaseURL | relLangURL }}">
+                <img src="{{ if .Site.Params.Logo }}{{ .Site.Params.Logo | relLangURL }}{{ else }}{{ "assets/images/ghost.png" | relLangURL }}{{ end }}" alt="Blog Logo" />
+        </a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<section class="author-profile inner">
+    {{/*  author picture  */}}
+    {{ if $author.assets }}
+    <figure class="author-image">
+        <a class="img" href="{{ printf "author/%s" $author.username | relLangURL }}" style="background-image: url({{ $author.assets | relURL }})"><span
+                class="hidden">{{ .Site.Params.Username }}'s Picture</span></a>
+    </figure>
+    {{ end }}
+    {{/*  author bio  */}}
+    <h1 class="author-title">{{ .Site.Params.Name }}</h1>
+    {{ if $author.bio }}
+    <div style="display:inline; text-align: justify; text-justify: inter-word;">
+        <h2 class="author-bio">{{ $author.bio }}</h2>
+    </div>
+    {{ end }}
+    {{/*  author meta date  */}}
+    <div class="author-meta">
+        {{ if $author.location }}
+        <span class="author-location icon-location">{{ $author.location }}</span>
+        {{ end }}
+        {{ if $author.url }}
+        <span class="author-link icon-link"><a href="{{ $author.url_full | relLangURL }}">{{ $author.url }}</a></span>
+        {{ end }}
+        {{ $length := (len .Data.Pages ) }}
+        <span class="author-stats"><i class="icon-stats"></i>{{ if eq $length 0 }}No posts{{ else }}{{ $length }} posts{{ end }}</span>
+    </div>
+</section>
+
+<main id="content" class="content" role="main">
+    <div class="extra-pagination inner">
+        {{ partial "pagination.html" . }}
+    </div>
+    {{ partial "range.html" . }}
+</main>
+{{ end }}

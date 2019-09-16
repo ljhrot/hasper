@@ -1,0 +1,68 @@
+{{ $title := .Scratch.Get "title" -}}
+{{ $desc := .Scratch.Get "desc" }}
+<!-- document setttings -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<!-- page meta -->
+<title>{{ $title }}</title>
+<meta name="description" content="{{ if .Params.Description }}{{ .Params.Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}" />
+
+<!-- mobile meta -->
+<meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- brand icon -->
+<link rel="shortcut icon" href="{{ "/assets/images/favicon.ico" | relURL }}">
+
+<!-- styles'n'Scripts -->
+<link rel="stylesheet" type="text/css" href="{{ "/assets/css/screen.css" | relURL }}" />
+<link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+<link rel="stylesheet" type="text/css" href="{{ "/assets/css/syntax.css" | relURL }}" />
+
+<!-- highlight.js -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+<style>
+    .hljs {
+        background: none;
+    }
+</style>
+
+<!-- Ghost outputs important style and meta data with this tag -->
+<link rel="canonical" href="{{ .URL | relLangURL }}" />
+<meta name="referrer" content="origin" />
+
+<!-- Todo -->
+<link rel="next" href="/" />
+<meta property="og:site_name" content="{{ $title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $desc }}" />
+<meta property="og:url" content="{{ .URL }}" />
+{{- with .Params.Cover -}}
+<meta property="og:image" content="{{ . | relLangURL }}" />
+{{- end }}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $desc }}" />
+<meta name="twitter:url" content="{{ .URL }}" />
+{{- with .Params.Cover -}}
+<meta property="twitter:image:src" content="{{ . | relLangURL }}" />
+{{- end }}
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Website",
+        "publisher": "{{ .Site.Author }}",
+        "name": "{{ $title }}",
+        "url": "{{ .URL }}",
+        {{- with .Params.Cover }}
+        "image": "{{ . | relLangURL }}",
+        {{- end }}
+        "description": "{{ $desc }}"
+    }
+</script>
+{{ .Hugo.Generator }}

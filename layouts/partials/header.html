@@ -1,0 +1,40 @@
+
+<!-- generate $cover -->
+{{ $cover := ""}}
+{{ if .IsPage }}
+    {{ if  .Params.Cover }}
+        {{ $cover = .Params.Cover }}
+    {{end}}
+{{ else }}
+    {{ if .Site.Params.Cover }}
+        {{ $cover = .Site.Params.Cover }}
+    {{ end }}
+{{ end }}
+
+<header class="main-header {{ .Scratch.Get "head" }} {{ if not $cover }}no-cover{{ end }}" {{ if $cover }} style="background-image: url({{or (.Scratch.Get "cover") $cover | relLangURL }})"{{ end }}>
+    {{ if .Scratch.Get "navigation" }}
+    <nav class="main-nav {{ if $cover }}overlay{{ end }} clearfix ">
+        {{ if .Params.Logo }}
+        <a class="blog-logo" href="{{ .Site.BaseURL | relLangURL }}">
+            <img src="{{ .Params.Logo | relLangURL }}" alt="Blog Logo" />
+        </a>
+        {{ else if .Site.Params.Logo }}
+        <a class="blog-logo" href="{{ .Site.BaseURL | relLangURL }}">
+            <img src="{{ .Site.Params.Logo | relLangURL }}" alt="Blog Logo" />
+        </a>
+        {{ end }}
+
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+    {{ end }}
+    {{ if not .IsPage }}
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">{{ .Title }}</h1>
+            <!-- <h2 class="page-description">{{ if .Data.Pages.Len }}A {{ .Data.Pages.Len }}-post collection{{ else }}{{ .Site.Params.Description }}{{ end }}</h2> -->
+            <h2 class="page-description">{{ or (.Scratch.Get "page-description") .Site.Params.Description }}</h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+    {{ end }}
+</header>
