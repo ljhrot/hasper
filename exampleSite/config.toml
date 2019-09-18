@@ -1,0 +1,77 @@
+baseURL = "http://ljhrot.github.io"
+languageCode = "en-us"
+title = "Finding The Way Home"
+theme = "hasper"
+paginate = 5
+
+[taxonomies]
+  author = "author"
+  tag = "tags"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    weight = 10
+    identifier = "home"
+    url = "/"
+
+  [[menu.main]]
+    name = "About"
+    weight = 20
+    identifier = "about"
+    url = "/about"
+  
+  [[menu.main]]
+    name = "Fables"
+    weight = 30
+    identifier = "fables"
+    url = "/tags/fables"
+  
+  [[menu.main]]
+    name = "Speeches"
+    weight = 40
+    identifier = "speeches"
+    url = "/tags/speeches"
+  
+  [[menu.main]]
+    name = "Fiction"
+    weight = 50
+    identifier = "fiction"
+    url = "/tags/fiction"
+  
+  [[menu.main]]
+    name = "Casper"
+    weight = 60
+    identifier = "casper"
+    url = "/author/casper"
+
+  [[menu.main]]
+    name = "Edgar"
+    weight = 70
+    identifier = "edgar"
+    url = "/author/edgar"
+
+  [[menu.main]]
+    name = "Abraham"
+    weight = 80
+    identifier = "abraham"
+    url = "/author/abraham"
+    
+  [[menu.main]]
+    name = "Martin"
+    weight = 90
+    identifier = "martin"
+    url = "/author/martin"
+
+  [[menu.main]]
+    name = "Lewis"
+    weight = 100
+    identifier = "lewis"
+    url = "/author/lewis"
+
+[params]
+  description = "A beautiful narrative written with the world's most elegant publishing platform. The story begins here."
+  cover = "assets/images/cover1.jpg"
+  logo = "assets/images/ghost.png"
+  [params.author]
+    cover = "assets/images/cover4.jpg"
