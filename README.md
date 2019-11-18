@@ -1,10 +1,10 @@
-## hasper
+# Hasper
 
 This is a port of Ghost's default theme [Casper](https://github.com/tryghost/casper) for Jekyll inspired by [Jasper](https://github.com/jekyller/jasper).
 
 ## Live demo
 
-[Hasper Live Demo](https://ljhrot.github.io)
+[Hasper Live Demo](https://ljhrot.github.io/hasper)
 
 [Casper's Original Here](https://demo.ghost.io)
 
