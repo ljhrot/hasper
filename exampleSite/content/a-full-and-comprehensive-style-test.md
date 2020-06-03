@@ -131,28 +131,26 @@ author: casper
 
 <p>Code blocks can also be inserted with the highlight tag as below:</p>
 <pre>
-    {% raw %}
-    {% highlight language-x %}
+    {{</* highlight language */>}}
     # some code
-    {% endhighlight %}
-    {% endraw %}
+    {{</* /highlight */>}}
 </pre>
 
 <p>More information about code highlighting in jekyll can be found  <a href="https://jekyllrb.com/docs/templates/#code-snippet-highlighting">in Jekyll documentation</a>.</p>
 
 <p>These area a couple of examples showing the resulting highlighted code:</p>
 
-{% highlight css %}
+{{< highlight css >}}
 /* css code sample */
 #container {
     float: left;
     margin: 0 -240px 0 0;
     width: 100%;
 }
-{% endhighlight %}
+{{< /highlight >}}
 
 
-{% highlight javascript %}
+{{< highlight javascript >}}
 // javascript code sample
 $.ajax({
   type: 'POST',
@@ -166,7 +164,7 @@ $.ajax({
     alert("ajax error response type "+type);
   }
 });
-{% endhighlight %}
+{{< /highlight >}}
 
 <p>Now you can also use <a href="https://highlightjs.org/">highlight.js</a>.
 For more on how to use it and on the available styles check their

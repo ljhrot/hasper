@@ -75,3 +75,13 @@ paginate = 5
   logo = "assets/images/ghost.png"
   [params.author]
     cover = "assets/images/cover4.jpg"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # render html in markdown
+      unsafe = true
+
+  [markup.highlight]
+    # close hugo built in highlight
+    codeFences = false
