@@ -9,6 +9,6 @@
         <li class="nav-{{ .Identifier }} {{ if eq $navCurrent .Name }}nav-current{{ end }}" role="presentation"><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
     </ul>
-    <a class="subscribe-button icon-feed" href="{{if .IsNode}}{{.RSSLink}}{{else}}{{"index.xml" | relURL}}{{end}}">Subscribe</a>
+    <a class="subscribe-button icon-feed" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}">Subscribe</a>
 </div>
 <span class="nav-cover"></span>

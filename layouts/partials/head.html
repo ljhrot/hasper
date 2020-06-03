@@ -29,8 +29,9 @@
     }
 </style>
 
+
 <!-- Ghost outputs important style and meta data with this tag -->
-<link rel="canonical" href="{{ .URL | relLangURL }}" />
+<link rel="canonical" href="{{ .Permalink | relLangURL }}" />
 <meta name="referrer" content="origin" />
 
 <!-- Todo -->
@@ -39,7 +40,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{ $title }}" />
 <meta property="og:description" content="{{ $desc }}" />
-<meta property="og:url" content="{{ .URL }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
 {{- with .Params.Cover -}}
 <meta property="og:image" content="{{ . | relLangURL }}" />
 {{- end }}
@@ -47,7 +48,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ $title }}" />
 <meta name="twitter:description" content="{{ $desc }}" />
-<meta name="twitter:url" content="{{ .URL }}" />
+<meta name="twitter:url" content="{{ .Permalink }}" />
 {{- with .Params.Cover -}}
 <meta property="twitter:image:src" content="{{ . | relLangURL }}" />
 {{- end }}
@@ -58,11 +59,11 @@
         "@type": "Website",
         "publisher": "{{ .Site.Author }}",
         "name": "{{ $title }}",
-        "url": "{{ .URL }}",
+        "url": "{{ .Permalink }}",
         {{- with .Params.Cover }}
         "image": "{{ . | relLangURL }}",
         {{- end }}
         "description": "{{ $desc }}"
     }
 </script>
-{{ .Hugo.Generator }}
+{{ hugo.Generator }}
