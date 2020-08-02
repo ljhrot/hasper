@@ -4,7 +4,7 @@
 {{ .Scratch.Set "desc" .Site.Params.Description }}
 {{- partial "head.html" . -}}
 
-{{ $author := index .Site.Data.authors .Data.Term }}
+{{ $author := index .Site.Data.authors .Title }}
 <body class="author-template nav-closed">
 
 {{ .Scratch.Set "navCurrent" .Title }}

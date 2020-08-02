@@ -16,7 +16,7 @@
 {{ .Scratch.Set "navigation" true }}
 
 
-{{ with index .Site.Data.tags .Data.Term }}
+{{ with index .Site.Data.tags .Title }}
 {{ if .description }}
 {{ $.Scratch.Set "page-description" .description }}
 {{ end }}
