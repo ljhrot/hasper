@@ -1,4 +1,4 @@
-baseURL = "http://ljhrot.github.io/hasper"
+baseURL = "https://ljhrot.github.io/hasper"
 languageCode = "en-us"
 title = "Finding The Way Home"
 theme = "hasper"
@@ -75,6 +75,65 @@ paginate = 5
   logo = "assets/images/ghost.png"
   [params.author]
     cover = "assets/images/cover4.jpg"
+  [params.author.casper]
+    username = "casper"
+    name = "Casper McFadden"
+    location = "Maine, USA"
+    url_full = "http://ljhrot.github.io/hasper/"
+    url = "ljhrot.github.io/hasper"
+    bio = "A paranormal expert and his daughter bunk in an abandoned house populated by 3 mischievous ghosts and a friendly one, Casper."
+    avatar = "assets/images/casper.png"
+
+  [params.author.lewis]
+    username = "lewis"
+    name = "Lewis Carroll"
+    location = "Cheshire, England"
+    url_full = "http://ljhrot.github.io/hasper/"
+    url = "ljhrot.github.io/hasper"
+    bio = "My real name is Charles Lutwidge Dodgson, but people call me Lewis. I'm an English writer, mathematician, logician, Anglican deacon and photographer. People know me best for writing about Alice."
+    avatar = "assets/images/lewis.jpeg"
+  
+  [params.author.abraham]
+    username = "abraham"
+    name = "Abraham Lincoln"
+    location = "Kentucky, USA"
+    url_full = "http://ljhrot.github.io/hasper/"
+    url = "ljhrot.github.io/hasper"
+    bio = "I was the 16th president of the USA until I was assassinated in April of 1963. I led the US through its Civil War - its bloodiest and greatest moral, constitutional and political crisis."
+    avatar = "assets/images/abraham.jpg"
+
+  [params.author.edgar]
+    username = "edgar"
+    name = "Edgar Rice Burroughs"
+    location = "Chicago, Illinois"
+    url_full = "http://ljhrot.github.io/hasper/"
+    url = "ljhrot.github.io/hasper"
+    bio = "I'm an American novelist, best known for my work writing about a brave jungle hero called Tarzan and his muse, Jane."
+    avatar = "assets/images/edgar.gif"
+
+  [params.author.martin]
+    username = "martin"
+    name = "Martin Luther King"
+    location = "Memphis, Tennessee"
+    url_full = "http://ljhrot.github.io/hasper/"
+    url = "ljhrot.github.io/hasper"
+    bio = "An American pastor, activist, humanitarian. People know me for leading the African-American Civil Rights movement using nonviolent civil disobedience."
+    avatar = "assets/images/martin.jpg"
+
+  [params.tag.test]
+    name = "test"
+    cover = "assets/images/cover2.jpg"
+    desc = "A series of short stories that make you think."
+
+  [params.tag.fables]
+    name = "fables"
+    cover = "assets/images/cover2.jpg"
+    desc = "A series of short stories that make you think."
+
+  [params.tag.speeches]
+    name = "speeches"
+    cover = "assets/images/cover7.jpg"
+    desc = "Some of the greatest words ever spoken."
 
 [markup]
   [markup.goldmark]
