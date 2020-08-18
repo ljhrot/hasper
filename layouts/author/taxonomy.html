@@ -4,7 +4,7 @@
 {{ .Scratch.Set "desc" .Site.Params.Description }}
 {{- partial "head.html" . -}}
 
-{{ $author := index .Site.Data.authors .Title }}
+{{ $author := index .Site.Params.author .Title }}
 <body class="author-template nav-closed">
 
 {{ .Scratch.Set "navCurrent" .Title }}
@@ -26,9 +26,9 @@
 
 <section class="author-profile inner">
     {{/*  author picture  */}}
-    {{ if $author.assets }}
+    {{ if $author.avatar }}
     <figure class="author-image">
-        <a class="img" href="{{ printf "author/%s" $author.username | relLangURL }}" style="background-image: url({{ $author.assets | relURL }})"><span
+        <a class="img" href="{{ printf "author/%s" $author.username | relLangURL }}" style="background-image: url({{ $author.avatar | relURL }})"><span
                 class="hidden">{{ .Site.Params.Username }}'s Picture</span></a>
     </figure>
     {{ end }}

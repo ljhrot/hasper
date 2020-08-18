@@ -1,7 +1,7 @@
 {{ range .Paginator.Pages }}
 {{ $author := ""}}
 {{ if .Params.Author }}
-{{ $author = index .Site.Data.authors .Params.Author }}
+{{ $author = index .Site.Params.author .Params.Author }}
 {{ end }}
 {{ if and $author (eq .Params.Layout "post" ) }}
 <article class="post">
@@ -14,7 +14,7 @@
     </section>
 
     <footer class="post-meta">
-        <img class="author-thumb" src="{{ $author.assets | relURL }}" alt="Author image" nopin="nopin" />
+        <img class="author-thumb" src="{{ $author.avatar | relURL }}" alt="Author image" nopin="nopin" />
         <a href="{{ printf "author/%s" $author.username | relLangURL  }}">{{- $author.name -}}</a>
 
         {{/*  tags  */}}

@@ -5,7 +5,7 @@
 
 {{ $author := ""}}
 {{ if .Params.Author }}
-{{ $author = index .Site.Data.authors .Params.Author }}
+{{ $author = index .Site.Params.author .Params.Author }}
 {{ end }}
 <body class="home-template nav-closed">
     
@@ -55,7 +55,7 @@
             {{/*  author  */}}
             {{ if .Site.Params.Assets }}
             <figure class="author-image">
-                <a class="img" href="{{ printf "author/%s" $author.username | relLangURL }}" style="background-image: url({{ $author.assets | relURL }})"><span class="hidden">{{ $author.username }}'s Picture</span></a>
+                <a class="img" href="{{ printf "author/%s" $author.username | relLangURL }}" style="background-image: url({{ $author.avatar | relURL }})"><span class="hidden">{{ $author.username }}'s Picture</span></a>
             </figure>
             {{ end }}
 
