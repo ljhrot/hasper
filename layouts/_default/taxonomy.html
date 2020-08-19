@@ -15,7 +15,7 @@
 {{ .Scratch.Set "head" "tag-head" }}
 {{ .Scratch.Set "navigation" true }}
 
-
+{{ if .Site.Params.tag }}
 {{ with index .Site.Params.tag .Title }}
 {{ if .description }}
 {{ $.Scratch.Set "page-description" .description }}
@@ -23,6 +23,7 @@
 
 {{ if .cover }}
 {{ $.Scratch.Set "cover" .cover }}
+{{ end }}
 {{ end }}
 {{ end }}
 

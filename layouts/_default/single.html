@@ -24,11 +24,12 @@
     {{ end }}
     <article class="{{ $postClass }}">
 
-        {{if $author }}
         <header class="post-header">
             <h1 class="post-title">{{ .Title }}</h1>
             <section class="post-meta">
+                {{ if $author }}
                 <a href="{{ printf "author/%s" $author.username | relLangURL }}">{{- $author.name -}}</a>
+                {{ end }}
                 <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
                     {{ .Date.Format "2 Jan 2006" }}
                 </time>
@@ -37,14 +38,14 @@
                 {{ with .Params.Tags }}
                 {{ $len := (len .) }}
                 {{ range $index, $tag := . }}
-                    {{ if eq $index 0 }}on{{ end }}
-                    <a href="{{ "tags" | relLangURL }}/{{ . | urlize }}/">{{ . | humanize }}</a>
-                    {{- if ne (add $index 1) $len -}},{{- end -}}
+                {{ if eq $index 0 }}on{{ end }}
+                <a href="{{ "tags" | relLangURL }}/{{ . | urlize }}/">{{ . | humanize }}</a>
+                {{- if ne (add $index 1) $len -}},{{- end -}}
+                
                 {{ end }}
                 {{ end }}
             </section>
         </header>
-        {{ end }}
 
         <section class="post-content">
             {{ .Content }}

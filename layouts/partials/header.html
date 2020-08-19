@@ -13,7 +13,7 @@
 
 <header class="main-header {{ .Scratch.Get "head" }} {{ if not $cover }}no-cover{{ end }}" {{ if $cover }} style="background-image: url({{or (.Scratch.Get "cover") $cover | relLangURL }})"{{ end }}>
     {{ if .Scratch.Get "navigation" }}
-    <nav class="main-nav {{ if $cover }}overlay{{ end }} clearfix ">
+    <nav class="main-nav overlay clearfix ">
         {{ if .Params.Logo }}
         <a class="blog-logo" href="{{ .Site.BaseURL | relLangURL }}">
             <img src="{{ .Params.Logo | relLangURL }}" alt="Blog Logo" />
@@ -21,6 +21,10 @@
         {{ else if .Site.Params.Logo }}
         <a class="blog-logo" href="{{ .Site.BaseURL | relLangURL }}">
             <img src="{{ .Site.Params.Logo | relLangURL }}" alt="Blog Logo" />
+        </a>
+        {{ else }}
+        <a class="blog-logo" href="/">
+            <img src="assets/images/ghost.png" alt="Blog Logo" />
         </a>
         {{ end }}
 
