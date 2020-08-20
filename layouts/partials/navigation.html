@@ -6,7 +6,7 @@
     <ul>
         {{ $navCurrent := .Scratch.Get "navCurrent" }}
         {{ range .Site.Menus.main }}
-        <li class="nav-{{ .Identifier }} {{ if eq $navCurrent .Name }}nav-current{{ end }}" role="presentation"><a href="{{ .URL }}">{{ .Name }}</a></li>
+        <li class="nav-{{ lower .Name }} {{ if eq ($navCurrent | humanize) .Name }}nav-current{{ end }}" role="presentation"><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
     </ul>
     <a class="subscribe-button icon-feed" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}">Subscribe</a>
