@@ -4,7 +4,7 @@
 {{- partial "head.html" . -}}
 
 {{ $author := ""}}
-{{ if .Params.Author }}
+{{ if and .Params.Author .Site.Params.author }}
 {{ $author = index .Site.Params.author .Params.Author }}
 {{ end }}
 <body class="home-template nav-closed">

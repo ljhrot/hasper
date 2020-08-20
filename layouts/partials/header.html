@@ -24,7 +24,7 @@
         </a>
         {{ else }}
         <a class="blog-logo" href="/">
-            <img src="assets/images/ghost.png" alt="Blog Logo" />
+            <img src="{{ path.Join ("assets" | relURL) "images" "ghost.png" }}" alt="Blog Logo" />
         </a>
         {{ end }}
 
@@ -34,7 +34,7 @@
     {{ if not .IsPage }}
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">{{ .Title }}</h1>
+            <h1 class="page-title">{{ .Title | humanize }}</h1>
             <!-- <h2 class="page-description">{{ if .Data.Pages.Len }}A {{ .Data.Pages.Len }}-post collection{{ else }}{{ .Site.Params.Description }}{{ end }}</h2> -->
             <h2 class="page-description">{{ or (.Scratch.Get "page-description") .Site.Params.Description }}</h2>
         </div>
