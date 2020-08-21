@@ -49,7 +49,6 @@
         {{ with .Params.Tags }}
         {{ $len := (len .) }}
         {{ range $index, $tag := . }}
-        {{ if eq $index 0 }}on{{ end }}
         <a href="{{ "tags" | relLangURL }}/{{ . | urlize }}/">{{ . | humanize }}</a>
         {{- if ne (add $index 1) $len -}},{{- end -}}
         {{ end }}
