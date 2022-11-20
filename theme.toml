@@ -8,7 +8,7 @@ description = ""
 homepage = "http://ljhrot.github.io/hasper/"
 tags = ["blog", "simple"]
 features = ["blog", "simple"]
-min_version = "0.41"
+min_version = "0.106.0"
 
 [author]
   name = "ljhrot"
