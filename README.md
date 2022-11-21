@@ -10,7 +10,7 @@ This is a port of Ghost's default theme [Casper](https://github.com/tryghost/cas
 
 ## How to use it
 
-**Requirement:** [Hugo](https://github.com/gohugoio/hugo)
+**Requirement:** [Hugo](https://github.com/gohugoio/hugo) version >= 0.106.0
 
 ### 1. Create a New Site 
 
@@ -63,7 +63,7 @@ $ hugo server -D
 ### 5. Next
 
 **Important:** You will find a demo in [exampleSite](https://github.com/ljhrot/hasper/tree/master/exampleSite). Take a look at the files in this folder, 
-especially config.toml and data folder.
+especially `config.toml`.
 
 ## Thanks
 
