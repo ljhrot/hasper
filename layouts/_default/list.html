@@ -4,9 +4,6 @@
 {{ .Scratch.Set "desc" .Site.Params.Description }}
 {{- partial "head.html" . -}}
 
-<!-- this is a bug -->
-<!-- see https://discourse.gohugo.io/t/solved-error-calling-index-value-is-nil-should-be-of-type-string/10453/13 -->
-<!-- hugo version 0.54.0  -->
 {{ $paginator := .Paginate .Site.RegularPages }}
 
 <body class="{{ if (gt .Paginator.PageNumber 1) }}paged archive-template{{ else }}home-template{{ end }} nav-closed">
